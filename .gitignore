@@ -63,3 +63,7 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+*Icon\r
+.idea/
+projects_cn/
+quiz/sklearn/gaussian/test.png
