@@ -79,10 +79,22 @@ mean and dot product.
 
 Both of these functions will be useful in later programming quizzes.
 '''
-if True:
+if False:
     array_1 = np.array([1, 2, 3], float)
     array_2 = np.array([[6], [7], [8]], float)
     print np.mean(array_1)
     print np.mean(array_2)
     print ""
     print np.dot(array_1, array_2)
+
+'''
+
+'''
+if True:
+    array_type = ["A", "B", "C"]
+    array_2 = [1,2,3,4,5]
+    array_2 = np.concatenate((array_2,[array_type[0]]))
+    array = np.vstack((array_2, array_2))
+    print array
+    array = np.vstack((array, array_2))
+    print array

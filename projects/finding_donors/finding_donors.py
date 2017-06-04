@@ -1,3 +1,6 @@
+# Machine learning - Finding donors - Python version of i
+# Ninhsth
+
 # Import libraries necessary for this project
 import numpy as np
 import pandas as pd
