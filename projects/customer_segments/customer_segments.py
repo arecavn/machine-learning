@@ -121,7 +121,7 @@ for idx, feature  in enumerate(log_data.keys()):
     Q3 = np.percentile(log_data[feature],75)
 
     # TODO: Use the interquartile range to calculate an outlier step (1.5 times the interquartile range)
-    step = Q3-Q1
+    step = 1.5*(Q3-Q1)
 
     # Display the outliers
     print "Data points considered outliers for the feature '{}' ".format(feature)
