@@ -7,6 +7,7 @@
 # and may go into an infinite loop with blit turned on.  Either
 # turn off blit or use an alternate backend, for example, like
 #     'TKAgg', using the following prepended to your source code:
+from collections import Counter
 
 import matplotlib
 matplotlib.use('TKAgg')
@@ -112,6 +113,7 @@ display(log_samples)
 
 print "\n\n*************************************** Implementation: Outlier Detection"
 outliers_all=pd.DataFrame()
+cnt = Counter()
 # For each feature find the data points with extreme high or low values
 for idx, feature  in enumerate(log_data.keys()):
     # TODO: Calculate Q1 (25th percentile of the data) for the given feature
@@ -127,7 +129,9 @@ for idx, feature  in enumerate(log_data.keys()):
     print "Data points considered outliers for the feature '{}' ".format(feature)
     print "Valid range: {} - {}: ".format(Q1 - step, Q3 + step)
     print "(Q1: {} Q3: {} step: {} Min: {} Max: {})".format(Q1, Q3, step, np.min(log_data[feature]), np.max(log_data[feature]))
-    display(log_data[~((log_data[feature] >= Q1 - step) & (log_data[feature] <= Q3 + step))])
+    outliers__by_single_feature = log_data[~((log_data[feature] >= Q1 - step) & (log_data[feature] <= Q3 + step))]
+    display(outliers__by_single_feature)
+
 
     ## Additional work
     print "Added to array"
