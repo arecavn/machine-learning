@@ -108,7 +108,9 @@ class LearningAgent(Agent):
         # maxAction = max(self.Q[state], key = lambda x: self.Q[state][x])
         # print "maxAction:", maxAction
         # maxQ = self.Q[state][maxAction]
-        maxQ = max(self.Q[state], key=self.Q[state].get)
+        # maxQ = max(self.Q[state], key=self.Q[state].get)
+        maxQ = max(state.values())
+
 
         return maxQ
 
@@ -177,8 +179,9 @@ class LearningAgent(Agent):
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         if self.learning:
             old_value = self.Q[state][action]
-            self.Q[state][action] = old_value + self.alpha (reward - old_value)
+            # self.Q[state][action] = old_value + self.alpha (reward - old_value)
             # https://en.wikipedia.org/wiki/Q-learning#Algorithm
+            self.Q[state][action] += self.alpha*(reward - self.Q[state][action])
 
         return
 
